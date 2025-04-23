@@ -62,7 +62,8 @@ TBD
 To generate a HTML test report, use the following command:
 
 ```
-TBD```
+TBD
+```
 
 ## Continuous Integration
 
