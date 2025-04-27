@@ -43,7 +43,6 @@
     "common-tags": "^1.8.2",
     "core-util-is": "^1.0.2",
     "cross-spawn": "^7.0.6",
-    "cypress": "^14.3.2",
     "dashdash": "^1.14.1",
     "dayjs": "^1.11.13",
     "debug": "^4.4.0",
@@ -167,7 +166,12 @@
     "wrappy": "^1.0.2",
     "yauzl": "^2.10.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/cypress": "^0.1.6",
+    "@types/node": "^22.15.2",
+    "cypress": "^14.3.2",
+    "typescript": "^5.8.3"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
