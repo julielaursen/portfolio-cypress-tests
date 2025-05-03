@@ -1,6 +1,10 @@
 describe("Main Page", () => {
   beforeEach(() => {
-    cy.visit("https://julielaursen.github.io/")
+    cy.visit("/", {
+      onBeforeLoad(win) {
+        win.localStorage.setItem("theme", "light")
+      },
+    })
   })
 
   it("Verify page title is correct", () => {
@@ -23,5 +27,18 @@ describe("Main Page", () => {
     cy.contains("Cypress").should("be.visible")
     cy.get("input[type='search']").clear()
     cy.dataCy("skills-tab-dev").should("have.class", "active")
+  })
+
+  it("Verify user can toggle dark/light theme", () => {
+    //start theme with light mode
+    cy.get("body").should("not.have.class", "dark-mode")
+    cy.get(".site-header").should("not.have.class", "dark-mode")
+
+    cy.get("#dark-mode-toggle").click()
+
+    cy.get("body").should("have.class", "dark-mode")
+    cy.get(".site-header").should("have.class", "dark-mode")
+
+    cy.get("body").should("have.css", "background-color", "rgb(18, 18, 18)")
   })
 })
