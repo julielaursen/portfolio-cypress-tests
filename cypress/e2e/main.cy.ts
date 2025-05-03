@@ -41,4 +41,43 @@ describe("Main Page", () => {
 
     cy.get("body").should("have.css", "background-color", "rgb(18, 18, 18)")
   })
+
+  it("verify footer links", () => {
+    cy.get("footer")
+      .find("a")
+      .eq(0)
+      .should("have.attr", "href", "https://github.com/julielaursen")
+    cy.get("footer")
+      .find("a")
+      .eq(1)
+      .should(
+        "have.attr",
+        "href",
+        "https://www.notion.so/Hi-I-m-Julie-Coleman-16c962ebb36080d18eb0f5adebd21268"
+      )
+    cy.get("footer")
+      .find("a")
+      .eq(2)
+      .should(
+        "have.attr",
+        "href",
+        "https://www.linkedin.com/in/julie-coleman-79b7a83/"
+      )
+    cy.get(".sitemap")
+      .find("a")
+      .eq(0)
+      .should("have.attr", "href", "portfolios/marketing-portfolio.html")
+    cy.get(".sitemap")
+      .find("a")
+      .eq(1)
+      .should("have.attr", "href", "portfolios/uiux-portfolio.html")
+    cy.get(".sitemap")
+      .find("a")
+      .eq(2)
+      .should("have.attr", "href", "portfolios/developer-portfolio.html")
+    cy.get(".sitemap")
+      .find("a")
+      .eq(3)
+      .should("have.attr", "href", "services.html")
+  })
 })
