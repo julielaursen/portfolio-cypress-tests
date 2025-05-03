@@ -16,6 +16,30 @@ describe("Main Page", () => {
     cy.get("div.introduction").find("p").should("have.length", 3)
   })
 
+  it("Verify menu button calls overlay", () => {
+    cy.get(".menu-btn").click()
+    cy.get(".overlay").should("be.visible")
+    cy.contains("Marketing Portfolio").should(
+      "have.attr",
+      "href",
+      "portfolios/marketing-portfolio.html"
+    )
+    cy.contains("UI/UX Portfolio").should(
+      "have.attr",
+      "href",
+      "portfolios/uiux-portfolio.html"
+    )
+    cy.contains("Developer Portfolio").should(
+      "have.attr",
+      "href",
+      "portfolios/developer-portfolio.html"
+    )
+    cy.contains("Service").should("have.attr", "href", "services.html")
+    cy.contains("Resume").should("have.attr", "href", "resume.html")
+    cy.get(".close-btn").click()
+    cy.get(".overlay").should("not.be.visible")
+  })
+
   it("Verify grid and its items", () => {
     cy.get("div.grid-container").find(".grid-item").should("have.length", 6)
   })
@@ -79,5 +103,9 @@ describe("Main Page", () => {
       .find("a")
       .eq(3)
       .should("have.attr", "href", "services.html")
+    cy.get(".copyright")
+      .find("a")
+      .should("have.attr", "href")
+      .and("include", "julielaursen1@gmail.com")
   })
 })
