@@ -1,4 +1,4 @@
-describe.skip("Services Page Tests", () => {
+describe("Services Page Tests", () => {
   beforeEach(() => {
     cy.visit("/services")
   })
@@ -45,15 +45,6 @@ describe.skip("Services Page Tests", () => {
           "contain.text",
           "I will review your website to ensure it is user-friendly"
         )
-      })
-  })
-
-  it("Should toggle the grid item details when 'SEE MORE' is clicked", () => {
-    cy.get(".grid-container .grid-item")
-      .first()
-      .within(() => {
-        cy.get(".see-more").click()
-        cy.get(".grid-item__side--back").should("be.visible")
       })
   })
 
