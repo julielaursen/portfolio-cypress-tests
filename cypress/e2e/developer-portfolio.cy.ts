@@ -27,8 +27,8 @@ describe("Developer Portfolio Page Tests", () => {
       "href",
       "developer-portfolio.html"
     )
-    cy.contains("Service").should("have.attr", "href", "services.html")
-    cy.contains("Resume").should("have.attr", "href", "resume.html")
+    cy.contains("Service").should("have.attr", "href", "../services.html")
+    cy.contains("Resume").should("have.attr", "href", "../resume.html")
     cy.get(".close-btn").click()
     cy.get(".overlay").should("not.be.visible")
   })
