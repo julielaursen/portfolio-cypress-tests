@@ -48,6 +48,16 @@ describe("Services Page Tests", () => {
       })
   })
 
+  it("Should test accessibility example", () => {
+    cy.visit("portfolios/accessibility-example.html")
+    cy.get("iframe").first().should("be.visible")
+    cy.get("a[href='intentionally-bad-site.html']")
+      .should("be.visible")
+      .and("have.attr", "target", "_blank")
+    cy.get("iframe").next().should("be.visible")
+    cy.get("iframe").next().should("be.visible")
+  })
+
   it("Should display the footer with social media icons and sitemap", () => {
     cy.get(".social-media-icons img").should("have.length", 3)
     cy.get(".social-media-icons img")
