@@ -4,6 +4,7 @@ describe("Resume Page Tests", () => {
     cy.injectAxe()
   })
 
+  // This test is intentionally failing to demonstrate the accessibility testing
   it("Should show the site for accessibility testing", () => {
     cy.contains("Julie's Fake Company").should("be.visible")
 
