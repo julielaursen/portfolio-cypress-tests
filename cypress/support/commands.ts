@@ -24,6 +24,8 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+import "cypress-axe"
+
 Cypress.Commands.add("dataCy", (value) => {
   return cy.get(`[data-cy=${value}]`)
 })

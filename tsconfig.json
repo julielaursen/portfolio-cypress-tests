@@ -16,5 +16,9 @@
     "cypress/**/*.ts",
     "cypress/support/cypress.d.ts"
   ],
-  "exclude": ["node_modules", "cypress/support/commands.ts"]
+  "exclude": [
+    "node_modules",
+    "cypress/support/commands.ts",
+    "cypress/support/cypress.d.ts"
+  ]
 }

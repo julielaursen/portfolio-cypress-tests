@@ -1,5 +1,5 @@
 import { mount } from "cypress/react"
-
+/// <reference path="../../support/cypress.d.ts" />
 // Augment the Cypress namespace to include type definitions for
 // your custom command.
 // Alternatively, can be defined in cypress/support/component.d.ts
@@ -14,5 +14,8 @@ declare global {
        */
       dataCy(value: string): Chainable<JQuery<HTMLElement>>
     }
+  }
+  interface AUTWindow {
+    axe: typeof import("axe-core")
   }
 }

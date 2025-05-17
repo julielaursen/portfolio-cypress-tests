@@ -6,7 +6,9 @@
   "devDependencies": {
     "@cypress/react": "^9.0.1",
     "@types/node": "^22.15.2",
-    "cypress": "^14.3.2",
+    "axe-core": "^4.10.3",
+    "cypress": "^14.3.3",
+    "cypress-axe": "^1.6.0",
     "typescript": "^5.8.3"
   },
   "scripts": {
