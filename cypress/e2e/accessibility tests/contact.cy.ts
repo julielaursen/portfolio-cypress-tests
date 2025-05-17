@@ -1,12 +1,12 @@
 describe("Resume Page Tests", () => {
   beforeEach(() => {
-    cy.visit("/portfolios/intentionally-bad-site.html")
+    cy.visit("/portfolios/contact.html")
     cy.injectAxe()
   })
 
   // This test is intentionally showing violations to demonstrate accessibility testing
   it("Should show the site for accessibility testing", () => {
-    cy.contains("Julie's Fake Company").should("be.visible")
+    cy.contains("CONTACT US").should("be.visible")
 
     cy.window()
       .then((win) => {
@@ -21,7 +21,7 @@ describe("Resume Page Tests", () => {
         })
 
         // ✅ This is your custom assertion
-        expect(violations.length).to.equal(8)
+        expect(violations.length).to.equal(7)
       })
   })
 })
