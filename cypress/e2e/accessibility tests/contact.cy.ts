@@ -5,7 +5,7 @@ describe("Resume Page Tests", () => {
   })
 
   // This test is intentionally showing violations to demonstrate accessibility testing
-  it("Should show the site for accessibility testing", () => {
+  it("Should show the accessibility violations in contact.html for demonstration purposes", () => {
     cy.contains("CONTACT US").should("be.visible")
 
     cy.window()
