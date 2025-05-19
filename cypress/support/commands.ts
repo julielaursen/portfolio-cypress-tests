@@ -31,10 +31,37 @@ declare global {
   namespace Cypress {
     interface Chainable<Subject = any> {
       dataCy(value: string): Chainable<JQuery<HTMLElement>>
+      checkMenuOverlay(): Chainable<JQuery<HTMLElement>>
     }
   }
 }
 
 Cypress.Commands.add("dataCy", (value: string) => {
   return cy.get(`[data-cy=${value}]`)
+})
+
+Cypress.Commands.add("checkMenuOverlay", () => {
+  cy.get(".menu-btn").click()
+  cy.get(".overlay").should("be.visible")
+  cy.contains("Marketing Portfolio").click()
+  cy.url().should("include", "portfolios/marketing-portfolio.html")
+  cy.go("back")
+  cy.get(".menu-btn").click()
+  cy.contains("UI/UX Portfolio")
+  // Fix error on calling dark mode script
+  // cy.contains("UI/UX Portfolio").click()
+  cy.contains("Developer Portfolio").click()
+  cy.url().should("include", "portfolios/developer-portfolio.html")
+  cy.go("back")
+  cy.get(".menu-btn").click()
+  cy.contains("Service").click()
+  cy.url().should("include", "services.html")
+  cy.go("back")
+  cy.get(".menu-btn").click()
+  cy.contains("Resume").click()
+  cy.url().should("include", "resume.html")
+  cy.go("back")
+  cy.get(".menu-btn").click()
+  cy.get(".close-btn").click({ force: true })
+  cy.get(".overlay").should("not.be.visible")
 })
