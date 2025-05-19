@@ -26,6 +26,15 @@
 
 import "cypress-axe"
 
-Cypress.Commands.add("dataCy", (value) => {
+// Extend Cypress' Chainable interface to include the custom command
+declare global {
+  namespace Cypress {
+    interface Chainable<Subject = any> {
+      dataCy(value: string): Chainable<JQuery<HTMLElement>>
+    }
+  }
+}
+
+Cypress.Commands.add("dataCy", (value: string) => {
   return cy.get(`[data-cy=${value}]`)
 })

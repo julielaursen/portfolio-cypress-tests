@@ -10,6 +10,7 @@ describe("Resume Page Tests", () => {
 
     cy.window()
       .then((win) => {
+        //@ts-expect-error to fix later
         return win.axe.run()
       })
       .then((results) => {
