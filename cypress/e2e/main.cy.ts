@@ -28,7 +28,7 @@ describe("Main Page", () => {
     cy.get("div.introduction").find("p").should("have.length", 3)
   })
 
-  it.only("Verify menu button calls overlay", () => {
+  it("Verify menu button calls overlay", () => {
     cy.checkMenuOverlay()
   })
 

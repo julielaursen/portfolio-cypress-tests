@@ -47,9 +47,9 @@ Cypress.Commands.add("checkMenuOverlay", () => {
   cy.url().should("include", "portfolios/marketing-portfolio.html")
   cy.go("back")
   cy.get(".menu-btn").click()
-  cy.contains("UI/UX Portfolio")
-  // Fix error on calling dark mode script
-  // cy.contains("UI/UX Portfolio").click()
+  cy.contains("UI/UX Portfolio").click()
+  cy.go("back")
+  cy.get(".menu-btn").click()
   cy.contains("Developer Portfolio").click()
   cy.url().should("include", "portfolios/developer-portfolio.html")
   cy.go("back")
