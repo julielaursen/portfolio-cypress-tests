@@ -3,15 +3,15 @@ describe("Services Page Tests", () => {
     cy.visit("/services")
   })
 
-  it("Should display the header with logo and navigation links", () => {
+  it("Should display the header with the logo and navigation menu", () => {
+    // Check the logo
     cy.get(".logo")
       .should("be.visible")
       .and("have.attr", "src", "images/logo1.png")
 
-    cy.get(".overlay-content a").should("have.length.greaterThan", 0)
-    cy.get(".overlay-content a")
-      .first()
-      .should("contain.text", "Marketing Portfolio")
+    it("Verify menu button calls overlay", () => {
+      cy.checkMenuOverlay()
+    })
   })
 
   it("Should display all grid items with correct content", () => {
