@@ -89,20 +89,20 @@ Cypress.Commands.add("checkFooter", () => {
       "https://www.linkedin.com/in/julie-coleman-79b7a83/"
     )
 
-  // const expectedSitemapHrefs = [
-  //   "portfolios/marketing-portfolio",
-  //   "portfolios/uiux-portfolio",
-  //   "portfolios/developer-portfolio",
-  //   "services.html",
-  // ]
+  const expectedSitemapHrefs = [
+    "marketing-portfolio",
+    "uiux-portfolio",
+    "developer-portfolio",
+    "services.html",
+  ]
 
-  // cy.get(".sitemap")
-  //   .find("a")
-  //   .each(($el, idx) => {
-  //     cy.wrap($el)
-  //       .should("have.attr", "href")
-  //       .and("include", expectedSitemapHrefs[idx])
-  //   })
+  cy.get(".sitemap")
+    .find("a")
+    .each(($el, idx) => {
+      cy.wrap($el)
+        .should("have.attr", "href")
+        .and("include", expectedSitemapHrefs[idx])
+    })
   cy.get(".copyright")
     .find("a")
     .should("have.attr", "href")

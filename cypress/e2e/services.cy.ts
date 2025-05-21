@@ -58,22 +58,7 @@ describe("Services Page Tests", () => {
     cy.get("iframe").next().should("be.visible")
   })
 
-  it("Should display the footer with social media icons and sitemap", () => {
-    cy.get(".social-media-icons img").should("have.length", 3)
-    cy.get(".social-media-icons img")
-      .first()
-      .should("have.attr", "alt", "GitHub Logo")
-    cy.get(".sitemap ul li a").should("have.length", 4)
-    cy.get(".sitemap ul li a")
-      .first()
-      .should("contain.text", "Marketing Portfolio")
-  })
-
-  it("Should display the copyright and contact information in the footer", () => {
-    cy.get(".footer-email a")
-      .should("be.visible")
-      .and("have.attr", "href", "mailto:julielaursen1@gmail.com")
-
-    cy.get(".copy").should("contain.text", "2025 © Julie Coleman")
+  it("verify footer links", () => {
+    cy.checkFooter()
   })
 })
