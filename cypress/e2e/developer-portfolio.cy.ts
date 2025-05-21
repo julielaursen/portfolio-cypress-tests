@@ -68,6 +68,10 @@ describe("Developer Portfolio Page Tests", () => {
       .and("have.attr", "target", "_blank")
   })
 
+  it.only("verify footer links", () => {
+    cy.checkFooter()
+  })
+
   it("Should display the footer with social media icons and sitemap", () => {
     // Check social media icons
     cy.get(".social-media-icons img").should("have.length", 3)

@@ -32,6 +32,7 @@ declare global {
     interface Chainable<Subject = any> {
       dataCy(value: string): Chainable<JQuery<HTMLElement>>
       checkMenuOverlay(): Chainable<JQuery<HTMLElement>>
+      checkFooter(): Chainable<JQuery<HTMLElement>>
     }
   }
 }
@@ -64,4 +65,46 @@ Cypress.Commands.add("checkMenuOverlay", () => {
   cy.get(".menu-btn").click()
   cy.get(".close-btn").click({ force: true })
   cy.get(".overlay").should("not.be.visible")
+})
+
+Cypress.Commands.add("checkFooter", () => {
+  cy.get("footer")
+    .find("a")
+    .eq(0)
+    .should("have.attr", "href", "https://github.com/julielaursen")
+  cy.get("footer")
+    .find("a")
+    .eq(1)
+    .should(
+      "have.attr",
+      "href",
+      "https://www.notion.so/Hi-I-m-Julie-Coleman-16c962ebb36080d18eb0f5adebd21268"
+    )
+  cy.get("footer")
+    .find("a")
+    .eq(2)
+    .should(
+      "have.attr",
+      "href",
+      "https://www.linkedin.com/in/julie-coleman-79b7a83/"
+    )
+
+  // const expectedSitemapHrefs = [
+  //   "portfolios/marketing-portfolio",
+  //   "portfolios/uiux-portfolio",
+  //   "portfolios/developer-portfolio",
+  //   "services.html",
+  // ]
+
+  // cy.get(".sitemap")
+  //   .find("a")
+  //   .each(($el, idx) => {
+  //     cy.wrap($el)
+  //       .should("have.attr", "href")
+  //       .and("include", expectedSitemapHrefs[idx])
+  //   })
+  cy.get(".copyright")
+    .find("a")
+    .should("have.attr", "href")
+    .and("include", "julielaursen1@gmail.com")
 })
