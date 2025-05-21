@@ -68,7 +68,7 @@ describe("Developer Portfolio Page Tests", () => {
       .and("have.attr", "target", "_blank")
   })
 
-  it.only("verify footer links", () => {
+  it("verify footer links", () => {
     cy.checkFooter()
   })
 
