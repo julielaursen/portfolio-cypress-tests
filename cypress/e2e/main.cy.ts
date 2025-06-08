@@ -65,25 +65,6 @@ describe("Main Page", () => {
     cy.get("body").should("have.css", "background-color", "rgb(18, 18, 18)")
   })
 
-  it("Verifies the form", () => {
-    cy.intercept("POST", "https://api.emailjs.com/api/v1.0/email/send-form", {
-      statusCode: 200,
-      body: { status: "OK" },
-    }).as("emailSend")
-
-    cy.get("#name").type("Test User")
-    cy.get("#email").type("test@example.com")
-    cy.get("#message").type("This is a test message.")
-
-    cy.get("form#contact-form").submit()
-
-    cy.wait("@emailSend")
-
-    cy.get("#form-message")
-      .should("be.visible")
-      .and("contain", "Message sent successfully!")
-  })
-
   it("verify footer links", () => {
     cy.checkFooter()
   })

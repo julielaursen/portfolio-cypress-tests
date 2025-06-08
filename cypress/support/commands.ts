@@ -107,4 +107,18 @@ Cypress.Commands.add("checkFooter", () => {
     .find("a")
     .should("have.attr", "href")
     .and("include", "julielaursen1@gmail.com")
+
+  /* To-Do: check the footer links for the portfolios */
+  cy.scrollTo("bottom")
+  cy.contains("Marketing Portfolio").click({ force: true })
+  cy.url().should("include", "portfolios/marketing-portfolio.html")
+  cy.go("back")
+  // cy.contains("UI/UX Portfolio").click()
+  // cy.go("back")
+  // cy.contains("Developer Portfolio").click()
+  // cy.url().should("include", "portfolios/developer-portfolio.html")
+  // cy.go("back")
+  // cy.contains("Services").click()
+  // cy.url().should("include", "services.html")
+  // cy.go("back")
 })
