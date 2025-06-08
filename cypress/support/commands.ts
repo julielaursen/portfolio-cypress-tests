@@ -111,7 +111,6 @@ Cypress.Commands.add("checkFooter", () => {
   cy.scrollTo("bottom")
   cy.contains("Marketing Portfolio").click({ force: true })
   cy.url().should("include", "portfolios/marketing-portfolio.html")
-  cy.go("back")
   cy.contains("UI/UX Portfolio").click({ force: true })
   cy.go("back")
   cy.contains("Developer Portfolio").click({ force: true })

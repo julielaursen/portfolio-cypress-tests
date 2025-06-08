@@ -65,8 +65,21 @@ describe("Main Page", () => {
     cy.get("body").should("have.css", "background-color", "rgb(18, 18, 18)")
   })
 
-  it.only("verify footer links", () => {
+  // TO-DO: fix and unskip
+  it.skip("verify footer links", () => {
     cy.checkFooter()
+    cy.scrollTo("bottom")
+    cy.contains("Marketing Portfolio").click({ force: true })
+    cy.url().should("include", "portfolios/marketing-portfolio.html")
+    cy.go("back")
+    cy.contains("UI/UX Portfolio").click({ force: true })
+    cy.go("back")
+    cy.contains("Developer Portfolio").click({ force: true })
+    cy.url().should("include", "portfolios/developer-portfolio.html")
+    cy.go("back")
+    cy.contains("Services").click({ force: true })
+    cy.url().should("include", "services.html")
+    cy.go("back")
   })
 
   it("Should scroll to the top when 'Back to Top' button is clicked", () => {

@@ -70,6 +70,18 @@ describe("Developer Portfolio Page Tests", () => {
 
   it("verify footer links", () => {
     cy.checkFooter()
+
+    cy.scrollTo("bottom")
+    cy.contains("Marketing Portfolio").click({ force: true })
+    cy.url().should("include", "portfolios/marketing-portfolio.html")
+    cy.go("back")
+    cy.contains("UI/UX Portfolio").click({ force: true })
+    cy.go("back")
+    cy.contains("Developer Portfolio").click({ force: true })
+    cy.url().should("include", "portfolios/developer-portfolio.html")
+    cy.contains("Services").click({ force: true })
+    cy.url().should("include", "services.html")
+    cy.go("back")
   })
 
   it("Should display the footer with social media icons and sitemap", () => {
