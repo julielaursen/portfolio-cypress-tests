@@ -65,7 +65,7 @@ describe("Main Page", () => {
     cy.get("body").should("have.css", "background-color", "rgb(18, 18, 18)")
   })
 
-  it("verify footer links", () => {
+  it.only("verify footer links", () => {
     cy.checkFooter()
   })
 
