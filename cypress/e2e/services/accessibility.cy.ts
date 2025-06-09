@@ -1,12 +1,12 @@
-describe.skip("Services Page Tests", () => {
+describe("Services Page Tests", () => {
   beforeEach(() => {
     cy.visit("portfolios/accessibility-example.html")
   })
 
   it("Should display the header with the logo and navigation menu", () => {
-    cy.get(".logo")
+    cy.dataCy("home-logo")
       .should("be.visible")
-      .and("have.attr", "src", "images/logo1.png")
+      .and("have.attr", "src", "../images/logo1.png")
 
     it("Verify menu button calls overlay", () => {
       cy.checkMenuOverlay()

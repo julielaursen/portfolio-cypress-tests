@@ -1,4 +1,4 @@
-describe.skip("Marketing Portfolio Page Tests", () => {
+describe("Marketing Portfolio Page Tests", () => {
   beforeEach(() => {
     cy.visit("portfolios/marketing-social-media.html")
   })
