@@ -7,10 +7,10 @@ describe("Marketing Portfolio Page Tests", () => {
     cy.get(".logo")
       .should("be.visible")
       .and("have.attr", "src", "../images/logo1.png")
+  })
 
-    it("Verify menu button calls overlay", () => {
-      cy.checkMenuOverlay()
-    })
+  it("Verify menu button calls overlay", () => {
+    cy.checkMenuOverlay()
   })
 
   it("Should verify the DevOpsDays link works", () => {
