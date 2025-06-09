@@ -14,13 +14,35 @@ describe("Services Page Tests", () => {
   })
 
   it("Should test accessibility example", () => {
-    cy.visit("portfolios/accessibility-example.html")
     cy.get("iframe").first().should("be.visible")
     cy.get("a[href='intentionally-bad-site.html']")
       .should("be.visible")
       .and("have.attr", "target", "_blank")
     cy.get("iframe").next().should("be.visible")
     cy.get("iframe").next().should("be.visible")
+  })
+
+  it("Should verify the Lighthouse link works", () => {
+    cy.contains("a", "Lighthouse")
+      .should("be.visible")
+      .and(
+        "have.attr",
+        "href",
+        "https://developer.chrome.com/docs/lighthouse/overview"
+      )
+    cy.contains("a", "VoiceOver")
+      .should("be.visible")
+      .and(
+        "have.attr",
+        "href",
+        "https://support.apple.com/en-ca/guide/voiceover/welcome/mac"
+      )
+    cy.contains("a", "WAVE")
+      .should("be.visible")
+      .and("have.attr", "href", "https://wave.webaim.org/")
+    cy.contains("a", "NVDA")
+      .should("be.visible")
+      .and("have.attr", "href", "https://www.nvaccess.org/about-nvda/")
   })
 
   it("verify footer links", () => {
