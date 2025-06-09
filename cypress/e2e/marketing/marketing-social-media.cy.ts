@@ -13,6 +13,26 @@ describe("Marketing Portfolio Page Tests", () => {
     })
   })
 
+  it("Should verify the DevOpsDays link works", () => {
+    cy.contains("a", "DevOpsDays")
+      .should("be.visible")
+      .and(
+        "have.attr",
+        "href",
+        "https://devopsdays.org/events/2025-austin/welcome/"
+      )
+  })
+
+  it("Should verify the Social Media link works", () => {
+    cy.contains("a", "Follow on LinkedIn")
+      .should("be.visible")
+      .and(
+        "have.attr",
+        "href",
+        "https://www.linkedin.com/company/devopsdays-austin/"
+      )
+  })
+
   it("verify footer links", () => {
     cy.checkFooter()
 

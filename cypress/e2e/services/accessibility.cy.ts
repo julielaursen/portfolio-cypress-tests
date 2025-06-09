@@ -22,7 +22,7 @@ describe("Services Page Tests", () => {
     cy.get("iframe").next().should("be.visible")
   })
 
-  it("Should verify the Lighthouse link works", () => {
+  it("Should verify the Accessibility links works", () => {
     cy.contains("a", "Lighthouse")
       .should("be.visible")
       .and(

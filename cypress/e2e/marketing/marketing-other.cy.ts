@@ -1,6 +1,6 @@
 describe("Marketing Portfolio Page Tests", () => {
   beforeEach(() => {
-    cy.visit("portfolios/marketing-other.html)
+    cy.visit("portfolios/marketing-portfolio.html")
   })
 
   it("Should display the header with the logo and navigation menu", () => {
