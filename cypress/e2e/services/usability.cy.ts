@@ -7,10 +7,10 @@ describe("Services Page Tests", () => {
     cy.dataCy("home-logo")
       .should("be.visible")
       .and("have.attr", "src", "../images/logo1.png")
+  })
 
-    it("Verify menu button calls overlay", () => {
-      cy.checkMenuOverlay()
-    })
+  it("Verify menu button calls overlay", () => {
+    cy.checkMenuOverlay()
   })
 
   it("verify footer links", () => {
