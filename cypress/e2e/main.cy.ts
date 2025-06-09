@@ -65,8 +65,7 @@ describe("Main Page", () => {
     cy.get("body").should("have.css", "background-color", "rgb(18, 18, 18)")
   })
 
-  // TO-DO: fix and unskip
-  it.skip("verify footer links", () => {
+  it("verify footer links", () => {
     cy.checkFooter()
     cy.scrollTo("bottom")
     cy.contains("Marketing Portfolio").click({ force: true })
