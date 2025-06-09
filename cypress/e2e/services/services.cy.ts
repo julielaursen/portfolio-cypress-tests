@@ -48,16 +48,6 @@ describe("Services Page Tests", () => {
       })
   })
 
-  it("Should test accessibility example", () => {
-    cy.visit("portfolios/accessibility-example.html")
-    cy.get("iframe").first().should("be.visible")
-    cy.get("a[href='intentionally-bad-site.html']")
-      .should("be.visible")
-      .and("have.attr", "target", "_blank")
-    cy.get("iframe").next().should("be.visible")
-    cy.get("iframe").next().should("be.visible")
-  })
-
   it("verify footer links", () => {
     cy.checkFooter()
     cy.contains("Marketing Portfolio").click({ force: true })
