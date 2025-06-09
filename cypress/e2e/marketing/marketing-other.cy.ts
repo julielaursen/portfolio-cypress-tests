@@ -22,6 +22,7 @@ describe("Marketing Portfolio Page Tests", () => {
       "eq",
       "https://julielaursen.github.io/portfolios/marketing-portfolio.html"
     )
+    cy.go("back")
     cy.contains("UI/UX Portfolio").click({ force: true })
     cy.url().should(
       "eq",
