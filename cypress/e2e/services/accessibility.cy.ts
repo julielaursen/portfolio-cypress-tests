@@ -3,7 +3,7 @@ describe("Services Page Tests", () => {
     cy.visit("portfolios/accessibility-example.html")
   })
 
-  it("Should display the header with the logo and navigation menu", () => {
+  it("Should display the headers and subheaders with the logo and navigation menu", () => {
     cy.dataCy("home-logo")
       .should("be.visible")
       .and("have.attr", "src", "../images/logo1.png")
@@ -13,7 +13,7 @@ describe("Services Page Tests", () => {
     cy.checkMenuOverlay()
   })
 
-  it("Should test accessibility example", () => {
+  it("Should test accessibility examples", () => {
     cy.get("iframe").first().should("be.visible")
     cy.get("a[href='intentionally-bad-site.html']")
       .should("be.visible")
@@ -43,6 +43,10 @@ describe("Services Page Tests", () => {
     cy.contains("a", "NVDA")
       .should("be.visible")
       .and("have.attr", "href", "https://www.nvaccess.org/about-nvda/")
+  })
+
+  it("Should display a responsive table section", () => {
+    cy.get("div.table-responsive").should("be.visible")
   })
 
   it("verify footer links", () => {

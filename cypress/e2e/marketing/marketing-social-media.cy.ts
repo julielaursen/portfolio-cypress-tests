@@ -37,26 +37,6 @@ describe("Marketing Portfolio Page Tests", () => {
     cy.checkMenuOverlay()
   })
 
-  it("Should verify the DevOpsDays link works", () => {
-    cy.contains("a", "DevOpsDays")
-      .should("be.visible")
-      .and(
-        "have.attr",
-        "href",
-        "https://devopsdays.org/events/2025-austin/welcome/"
-      )
-  })
-
-  it("Should verify the Social Media link works", () => {
-    cy.contains("a", "Follow on LinkedIn")
-      .should("be.visible")
-      .and(
-        "have.attr",
-        "href",
-        "https://www.linkedin.com/company/devopsdays-austin/"
-      )
-  })
-
   it("Should display all marketing images, verify they are visible, and have alt text", () => {
     cy.get('img[src^="../images/marketing-images/image"]').each(($img) => {
       cy.wrap($img)
@@ -64,6 +44,21 @@ describe("Marketing Portfolio Page Tests", () => {
         .and("have.attr", "alt")
         .and("not.be.empty")
     })
+  })
+
+  it("Should display all marketing posts, verify they are visible, and have alt text", () => {
+    cy.get('img[src^="../images/marketing-images/linkedinpost"]').each(
+      ($img) => {
+        cy.wrap($img)
+          .should("be.visible")
+          .and("have.attr", "alt")
+          .and("not.be.empty")
+      }
+    )
+  })
+
+  it("Should display the calendar section", () => {
+    cy.get(".calendar").should("be.visible")
   })
 
   it("verify footer links", () => {

@@ -14,6 +14,17 @@ describe("Marketing Portfolio Page Tests", () => {
     cy.checkMenuOverlay()
   })
 
+  it("Should display the Document 1 thumbnail image with correct link and alt text", () => {
+    cy.get(
+      'a[href="https://docs.google.com/document/d/1RdgU066U7d6kQJeJhbpQ3MNySAGwlVa3x3AEZixajAE/preview"]'
+    )
+      .should("have.attr", "target", "_blank")
+      .find("img.thumbnail")
+      .should("be.visible")
+      .and("have.attr", "src", "../images/thumbnail1.png")
+      .and("have.attr", "alt", "Document 1")
+  })
+
   it("verify footer links", () => {
     cy.checkFooter()
 
