@@ -7,6 +7,7 @@ describe("Marketing Portfolio Page Tests", () => {
     cy.get(".logo")
       .should("be.visible")
       .and("have.attr", "src", "../images/logo1.png")
+    cy.get("h2").should("contain.text", "Social Media Audit")
   })
 
   it("Verify menu button calls overlay", () => {

@@ -8,9 +8,67 @@ describe("Marketing Portfolio Page Tests", () => {
       .should("be.visible")
       .and("have.attr", "src", "../images/logo1.png")
 
-    it("Verify menu button calls overlay", () => {
-      cy.checkMenuOverlay()
-    })
+    cy.get("h1").should("contain.text", "Marketing Portfolio")
+  })
+
+  it("Verify menu button calls overlay", () => {
+    cy.get(".menu-btn").click()
+    cy.get(".overlay").should("be.visible")
+    cy.contains("Marketing Portfolio").click()
+    cy.url().should(
+      "eq",
+      "https://julielaursen.github.io/portfolios/marketing-portfolio.html"
+    )
+    cy.get(".menu-btn").click()
+    cy.contains("UI/UX Portfolio").click()
+    cy.url().should(
+      "eq",
+      "https://julielaursen.github.io/portfolios/uiux-portfolio.html"
+    )
+    cy.go("back")
+    cy.get(".menu-btn").click()
+    cy.contains("Developer Portfolio").click()
+    cy.url().should(
+      "eq",
+      "https://julielaursen.github.io/portfolios/developer-portfolio.html"
+    )
+    cy.go("back")
+    cy.get(".menu-btn").click()
+    cy.contains("Service").click()
+    cy.url().should("include", "services.html")
+    cy.go("back")
+    cy.get(".menu-btn").click()
+    cy.contains("Resume").click()
+    cy.url().should("include", "resume.html")
+    cy.go("back")
+    cy.get(".menu-btn").click()
+    cy.get(".close-btn").click({ force: true })
+    cy.get(".overlay").should("not.be.visible")
+  })
+
+  it("Should display two marketing cards with correct titles", () => {
+    cy.get("div.card-marketing").should("have.length", 2)
+
+    cy.get("div.card-marketing")
+      .eq(0)
+      .within(() => {
+        cy.contains(/Social Media/i).click()
+      })
+    cy.url().should(
+      "eq",
+      "https://julielaursen.github.io/portfolios/marketing-social-media.html"
+    )
+    cy.go("back")
+
+    cy.get("div.card-marketing")
+      .eq(1)
+      .within(() => {
+        cy.contains(/Other/i).click()
+      })
+    cy.url().should(
+      "eq",
+      "https://julielaursen.github.io/portfolios/marketing-other.html"
+    )
   })
 
   it("verify footer links", () => {

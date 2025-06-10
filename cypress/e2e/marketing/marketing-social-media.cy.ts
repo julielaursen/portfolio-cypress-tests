@@ -7,6 +7,27 @@ describe("Marketing Portfolio Page Tests", () => {
     cy.get(".logo")
       .should("be.visible")
       .and("have.attr", "src", "../images/logo1.png")
+
+    cy.get("h2").should(
+      "contain.text",
+      "Content for Social Media Posts @DevOpsDays Austin"
+    )
+  })
+
+  it("Should have a DevOpsDays Austin LinkedIn link that opens in a new tab", () => {
+    cy.get(".devopsdays-linkedin-container a.cta-button")
+      .should("be.visible")
+      .and(
+        "have.attr",
+        "href",
+        "https://www.linkedin.com/company/devopsdays-austin/"
+      )
+      .and("have.attr", "target", "_blank")
+      .and(
+        "have.attr",
+        "aria-label",
+        "Visit the DevOpsDays Austin LinkedIn profile"
+      )
   })
 
   it("Verify menu button calls overlay", () => {
