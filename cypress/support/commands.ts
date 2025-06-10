@@ -45,14 +45,24 @@ Cypress.Commands.add("checkMenuOverlay", () => {
   cy.get(".menu-btn").click()
   cy.get(".overlay").should("be.visible")
   cy.contains("Marketing Portfolio").click()
-  cy.url().should("include", "portfolios/marketing-portfolio.html")
+  cy.url().should(
+    "eq",
+    "https://julielaursen.github.io/portfolios/marketing-portfolio.html"
+  )
   cy.go("back")
   cy.get(".menu-btn").click()
   cy.contains("UI/UX Portfolio").click()
+  cy.url().should(
+    "eq",
+    "https://julielaursen.github.io/portfolios/uiux-portfolio.html"
+  )
   cy.go("back")
   cy.get(".menu-btn").click()
   cy.contains("Developer Portfolio").click()
-  cy.url().should("include", "portfolios/developer-portfolio.html")
+  cy.url().should(
+    "eq",
+    "https://julielaursen.github.io/portfolios/developer-portfolio.html"
+  )
   cy.go("back")
   cy.get(".menu-btn").click()
   cy.contains("Service").click()
