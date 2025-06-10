@@ -28,7 +28,6 @@ describe("Services Page Tests", () => {
     )
     cy.go("back")
     cy.contains("Developer Portfolio").click({ force: true })
-    cy.contains("Developer Portfolio").click({ force: true })
     cy.url().should(
       "eq",
       "https://julielaursen.github.io/portfolios/developer-portfolio.html"
