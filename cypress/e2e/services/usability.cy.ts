@@ -16,12 +16,23 @@ describe("Services Page Tests", () => {
   it("verify footer links", () => {
     cy.checkFooter()
     cy.contains("Marketing Portfolio").click({ force: true })
-    cy.url().should("include", "portfolios/marketing-portfolio.html")
+    cy.url().should(
+      "eq",
+      "https://julielaursen.github.io/portfolios/marketing-portfolio.html"
+    )
     cy.go("back")
     cy.contains("UI/UX Portfolio").click({ force: true })
+    cy.url().should(
+      "eq",
+      "https://julielaursen.github.io/portfolios/uiux-portfolio.html"
+    )
     cy.go("back")
     cy.contains("Developer Portfolio").click({ force: true })
-    cy.url().should("include", "portfolios/developer-portfolio.html")
+    cy.contains("Developer Portfolio").click({ force: true })
+    cy.url().should(
+      "eq",
+      "https://julielaursen.github.io/portfolios/developer-portfolio.html"
+    )
     cy.go("back")
     cy.contains("Services").click({ force: true })
     cy.url().should("include", "services.html")
