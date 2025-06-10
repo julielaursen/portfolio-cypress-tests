@@ -3,7 +3,7 @@ describe("Marketing Portfolio Page Tests", () => {
     cy.visit("portfolios/marketing-social-media.html")
   })
 
-  it("Should display the header with the logo and navigation menu", () => {
+  it("Should display the header, subheaders, logo and navigation menu", () => {
     cy.get(".logo")
       .should("be.visible")
       .and("have.attr", "src", "../images/logo1.png")
@@ -12,6 +12,9 @@ describe("Marketing Portfolio Page Tests", () => {
       "contain.text",
       "Content for Social Media Posts @DevOpsDays Austin"
     )
+    cy.get("h2").should("contain.text", "Content Examples")
+    cy.get("h2").should("contain.text", "Post Examples")
+    cy.get("h2").should("contain.text", "Example Social Media Calendar")
   })
 
   it("Should have a DevOpsDays Austin LinkedIn link that opens in a new tab", () => {
@@ -52,6 +55,15 @@ describe("Marketing Portfolio Page Tests", () => {
         "href",
         "https://www.linkedin.com/company/devopsdays-austin/"
       )
+  })
+
+  it("Should display all marketing images, verify they are visible, and have alt text", () => {
+    cy.get('img[src^="../images/marketing-images/image"]').each(($img) => {
+      cy.wrap($img)
+        .should("be.visible")
+        .and("have.attr", "alt")
+        .and("not.be.empty")
+    })
   })
 
   it("verify footer links", () => {
