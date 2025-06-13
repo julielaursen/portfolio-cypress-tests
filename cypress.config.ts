@@ -5,7 +5,6 @@ export default defineConfig({
     baseUrl: "https://julielaursen.github.io",
 
     setupNodeEvents(on, config) {
-      // Register a log task so you can log from tests
       on("task", {
         log(message) {
           console.log(message)
