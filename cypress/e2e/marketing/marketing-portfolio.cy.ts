@@ -1,4 +1,6 @@
 describe("Marketing Portfolio Page Tests", () => {
+  const baseUrl = Cypress.config("baseUrl")
+
   beforeEach(() => {
     cy.visit("portfolios/marketing-portfolio.html")
   })
@@ -15,23 +17,14 @@ describe("Marketing Portfolio Page Tests", () => {
     cy.get(".menu-btn").click()
     cy.get(".overlay").should("be.visible")
     cy.contains("Marketing Portfolio").click()
-    cy.url().should(
-      "eq",
-      "https://julielaursen.github.io/portfolios/marketing-portfolio.html"
-    )
+    cy.url().should("eq", `${baseUrl}/portfolios/marketing-portfolio.html`)
     cy.get(".menu-btn").click()
     cy.contains("UI/UX Portfolio").click()
-    cy.url().should(
-      "eq",
-      "https://julielaursen.github.io/portfolios/uiux-portfolio.html"
-    )
+    cy.url().should("eq", `${baseUrl}/portfolios/uiux-portfolio.html`)
     cy.go("back")
     cy.get(".menu-btn").click()
     cy.contains("Developer Portfolio").click()
-    cy.url().should(
-      "eq",
-      "https://julielaursen.github.io/portfolios/developer-portfolio.html"
-    )
+    cy.url().should("eq", `${baseUrl}/portfolios/developer-portfolio.html`)
     cy.go("back")
     cy.get(".menu-btn").click()
     cy.contains("Service").click()
@@ -54,10 +47,7 @@ describe("Marketing Portfolio Page Tests", () => {
       .within(() => {
         cy.contains(/Social Media/i).click()
       })
-    cy.url().should(
-      "eq",
-      "https://julielaursen.github.io/portfolios/marketing-social-media.html"
-    )
+    cy.url().should("eq", `${baseUrl}/portfolios/marketing-social-media.html`)
     cy.go("back")
 
     cy.get("div.card-marketing")
@@ -65,10 +55,7 @@ describe("Marketing Portfolio Page Tests", () => {
       .within(() => {
         cy.contains(/Other/i).click()
       })
-    cy.url().should(
-      "eq",
-      "https://julielaursen.github.io/portfolios/marketing-other.html"
-    )
+    cy.url().should("eq", `${baseUrl}/portfolios/marketing-other.html`)
   })
 
   it("verify footer links", () => {
@@ -76,22 +63,12 @@ describe("Marketing Portfolio Page Tests", () => {
 
     cy.scrollTo("bottom")
     cy.contains("Marketing Portfolio").click({ force: true })
-    cy.url().should(
-      "eq",
-      "https://julielaursen.github.io/portfolios/marketing-portfolio.html"
-    )
+    cy.url().should("eq", `${baseUrl}/portfolios/marketing-portfolio.html`)
     cy.contains("UI/UX Portfolio").click({ force: true })
-    cy.url().should(
-      "eq",
-      "https://julielaursen.github.io/portfolios/uiux-portfolio.html"
-    )
+    cy.url().should("eq", `${baseUrl}/portfolios/uiux-portfolio.html`)
     cy.go("back")
     cy.contains("Developer Portfolio").click({ force: true })
-    cy.url().should(
-      "eq",
-      "https://julielaursen.github.io/portfolios/developer-portfolio.html"
-    )
-    cy.url().should("include", "portfolios/developer-portfolio.html")
+    cy.url().should("eq", `${baseUrl}/portfolios/developer-portfolio.html`)
     cy.go("back")
     cy.contains("Services").click({ force: true })
     cy.url().should("include", "services.html")

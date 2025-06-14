@@ -1,4 +1,6 @@
 describe("Marketing Portfolio Page Tests", () => {
+  const baseUrl = Cypress.config("baseUrl")
+
   beforeEach(() => {
     cy.visit("portfolios/marketing-social-media.html")
   })
@@ -66,22 +68,13 @@ describe("Marketing Portfolio Page Tests", () => {
 
     cy.scrollTo("bottom")
     cy.contains("Marketing Portfolio").click({ force: true })
-    cy.url().should(
-      "eq",
-      "https://julielaursen.github.io/portfolios/marketing-portfolio.html"
-    )
+    cy.url().should("eq", `${baseUrl}/portfolios/marketing-portfolio.html`)
     cy.go("back")
     cy.contains("UI/UX Portfolio").click({ force: true })
-    cy.url().should(
-      "eq",
-      "https://julielaursen.github.io/portfolios/uiux-portfolio.html"
-    )
+    cy.url().should("eq", `${baseUrl}/portfolios/uiux-portfolio.html`)
     cy.go("back")
     cy.contains("Developer Portfolio").click({ force: true })
-    cy.url().should(
-      "eq",
-      "https://julielaursen.github.io/portfolios/developer-portfolio.html"
-    )
+    cy.url().should("eq", `${baseUrl}/portfolios/developer-portfolio.html`)
     cy.g
     cy.go("back")
     cy.contains("Services").click({ force: true })
